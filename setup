@@ -1,0 +1,2 @@
+#!/bin/bash
+stack run aoc2021-exe setupMissing

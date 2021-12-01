@@ -1,0 +1,45 @@
+name:       aoc2021
+version:    0.1.0.0
+github:     "giacomocavalieri/aoc-2021"
+license:    MIT
+author:     "Giacomo Cavalieri"
+maintainer: "giacomo.cavalieri2@studio.unibo.it"
+copyright:  "2021 Giacomo Cavalieri"
+
+extra-source-files:
+- README.md
+
+description: Please see the README on GitHub at <https://github.com/giacomocavalieri/aoc-2021>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- directory
+- filepath
+- http-client
+- neat-interpolation
+- req
+- text
+- time
+
+library:
+  source-dirs: src
+  default-extensions:
+    - OverloadedStrings
+    - QuasiQuotes
+    - GADTs
+
+executables:
+  aoc2021-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    default-extensions:
+    - OverloadedStrings
+    - QuasiQuotes
+    - GADTs
+    dependencies:
+    - aoc2021
