@@ -39,19 +39,25 @@ days = [ day1 , day2 , day3 , day4 , day5
        , day21, day22, day23, day24, day25
        ]
 
+data RunMode = All | Last deriving (Eq)
+
 main :: IO ()
 main = do
     args <- getArgs
     case args of
-        ["run"]          -> run
+        ["runAll"]       -> run All
+        ["runLast"]      -> run Last
         ["setupAll"]     -> generate Overwrite
         ["setupMissing"] -> generate Preserve
         _                -> error "Unexpected command line argument"
 
-run :: IO ()
-run = do
+run :: RunMode -> IO ()
+run mode = do
     currentDay <- getCurrentDay
-    let daysToRun = take currentDay days
+    let runnableDays = take currentDay days
+        daysToRun    = case mode of
+                Last -> [last runnableDays]
+                All  -> runnableDays
     mapM_ runDay daysToRun
 
 getCurrentDay :: IO Int

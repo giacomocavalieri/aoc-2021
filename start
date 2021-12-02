@@ -1,2 +1,2 @@
 #!/bin/bash
-ghcid --test=":main run"
+ghcid --test=":main runLast"
