@@ -18,6 +18,7 @@ dependencies:
 - filepath
 - http-client
 - neat-interpolation
+- parsec
 - req
 - text
 - time
