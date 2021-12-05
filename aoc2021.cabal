@@ -58,18 +58,24 @@ library
   hs-source-dirs:
       src
   default-extensions:
+      DataKinds
       OverloadedStrings
       QuasiQuotes
       GADTs
   build-depends:
       base >=4.7 && <5
     , bytestring
+    , containers
     , directory
     , filepath
+    , ghc
+    , hgeometry
+    , hgeometry-combinatorial
     , http-client
     , neat-interpolation
     , parsec
     , req
+    , split
     , text
     , time
   default-language: Haskell2010
@@ -81,6 +87,7 @@ executable aoc2021-exe
   hs-source-dirs:
       app
   default-extensions:
+      DataKinds
       OverloadedStrings
       QuasiQuotes
       GADTs
@@ -89,12 +96,17 @@ executable aoc2021-exe
       aoc2021
     , base >=4.7 && <5
     , bytestring
+    , containers
     , directory
     , filepath
+    , ghc
+    , hgeometry
+    , hgeometry-combinatorial
     , http-client
     , neat-interpolation
     , parsec
     , req
+    , split
     , text
     , time
   default-language: Haskell2010
