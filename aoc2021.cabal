@@ -69,8 +69,6 @@ library
     , directory
     , filepath
     , ghc
-    , hgeometry
-    , hgeometry-combinatorial
     , http-client
     , neat-interpolation
     , parsec
@@ -100,8 +98,6 @@ executable aoc2021-exe
     , directory
     , filepath
     , ghc
-    , hgeometry
-    , hgeometry-combinatorial
     , http-client
     , neat-interpolation
     , parsec
