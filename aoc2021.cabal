@@ -70,6 +70,7 @@ library
     , filepath
     , ghc
     , http-client
+    , multiset
     , neat-interpolation
     , parsec
     , req
@@ -99,6 +100,7 @@ executable aoc2021-exe
     , filepath
     , ghc
     , http-client
+    , multiset
     , neat-interpolation
     , parsec
     , req
