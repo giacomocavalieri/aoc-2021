@@ -21,10 +21,10 @@ toPoints ((x1, y1), (x2, y2))
     | y1 == y2  = [(x, y1) | x <- x1...x2]
     | otherwise = zip (x1...x2) (y1...y2)
 
-(...) :: Int -> Int -> [Int]
-x1 ... x2
-    | x1 <= x2  = [x1..x2]
-    | otherwise = reverse [x2..x1]
+(...) :: (Ord a, Enum a) => a -> a -> [a]
+a ... b
+    | a <= b    = [a..b]
+    | otherwise = [a, pred a..b]
 
 histogram :: Ord a => [a] -> [(a, Int)]
 histogram = map (\g -> (head g, length g)) . group . sort
