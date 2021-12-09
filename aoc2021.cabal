@@ -70,6 +70,7 @@ library
     , filepath
     , ghc
     , http-client
+    , matrix
     , multiset
     , neat-interpolation
     , parsec
@@ -100,6 +101,7 @@ executable aoc2021-exe
     , filepath
     , ghc
     , http-client
+    , matrix
     , multiset
     , neat-interpolation
     , parsec

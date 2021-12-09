@@ -19,6 +19,7 @@ dependencies:
 - filepath
 - ghc
 - http-client
+- matrix
 - multiset
 - neat-interpolation
 - parsec
