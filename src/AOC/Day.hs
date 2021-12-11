@@ -19,7 +19,7 @@ runDay (Day number parse partA partB) = do
     let input = parse inputString
         resA  = show $ partA input
         resB  = show $ partB input
-    printf "%da: %s  " number resA
+    printf "%da: %s  \t" number resA
     printf "%db: %s\n" number resB
 
 getInput :: Int -> IO String
