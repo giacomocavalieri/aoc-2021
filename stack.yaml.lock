@@ -3,7 +3,14 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: dijkstra-simple-0.1.0@sha256:c8ef4401c26369aaea1531eafb59a253cfe9b88f5608c4874e7a9e4d64d0133a,1676
+    pantry-tree:
+      size: 529
+      sha256: 3f992ea20c6777802688be2af0b0ddb0dd40742d21cc634483643c31cc9ef31c
+  original:
+    hackage: dijkstra-simple-0.1.0@sha256:c8ef4401c26369aaea1531eafb59a253cfe9b88f5608c4874e7a9e4d64d0133a,1676
 snapshots:
 - completed:
     size: 586296

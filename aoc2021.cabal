@@ -66,6 +66,7 @@ library
       base >=4.7 && <5
     , bytestring
     , containers
+    , dijkstra-simple
     , directory
     , filepath
     , ghc
@@ -98,6 +99,7 @@ executable aoc2021-exe
     , base >=4.7 && <5
     , bytestring
     , containers
+    , dijkstra-simple
     , directory
     , filepath
     , ghc
