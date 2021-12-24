@@ -63,7 +63,8 @@ library
       QuasiQuotes
       GADTs
   build-depends:
-      base >=4.7 && <5
+      array
+    , base >=4.7 && <5
     , bytestring
     , containers
     , dijkstra-simple
@@ -96,6 +97,7 @@ executable aoc2021-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aoc2021
+    , array
     , base >=4.7 && <5
     , bytestring
     , containers
