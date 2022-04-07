@@ -2,9 +2,10 @@ module Days.Day11 ( day11 ) where
 
 import AOC.Day             ( Day(..) )
 import Control.Monad       ( replicateM )
-import Control.Monad.State ( State, evalState, gets, modify )
+import Control.Monad.State ( State, evalState, get, gets, modify )
+import Control.Monad.Loops ( untilM, whileM )
 import Data.Char           ( digitToInt )
-import Data.List           ( findIndex )
+import Data.List           ( findIndex, elemIndex )
 import Data.Matrix         ( Matrix
                            , (!)
                            , fromLists
@@ -18,9 +19,9 @@ import Data.Matrix         ( Matrix
 import Data.Maybe          ( fromJust )
 
 
-data Octopus = Energy Int | Flashed deriving (Show)
+data Octopus = Energy Int | Flashed deriving (Show, Eq)
 type Point   = (Int, Int)
-type Flashes = Int 
+type Flashes = Int
 type Input   = Matrix Octopus
 type Output  = Int
 
@@ -58,6 +59,9 @@ updateAll f = mapPos (const f)
 neighbours :: Point -> [Point]
 neighbours (x, y) = [(x+dx, y+dy) | dx <- [-1..1], dy <- [-1..1], dx /= 0 || dy /= 0]
 
+count :: (a -> Bool) -> Matrix a -> Int
+count pred = foldr (\elem acc -> if pred elem then acc + 1 else acc) 0
+
 {- Update logic -}
 step :: State (Matrix Octopus) Flashes  -- AOC description of the problem:
 step = do modify $ updateAll inc        -- 1. increase energy
@@ -71,7 +75,7 @@ flash = do
     let nFlashes = length flashesPos
     if nFlashes == 0 then pure 0 else do
         modify $ updatePoints (const Flashed) flashesPos            -- 2. set all octopi with energy >= 10 to Flashed
-        let neighbouringPoints = (concatMap neighbours flashesPos)
+        let neighbouringPoints = concatMap neighbours flashesPos
         modify $ updatePoints inc neighbouringPoints                -- 3. increase the energy of neighbouring octopi
         nFlashes' <- flash                                          -- 4. recursivley try to flash all octopi
         pure $ nFlashes + nFlashes'
@@ -79,8 +83,12 @@ flash = do
 partA :: Input -> Output
 partA = sum . evalState (replicateM 100 step)
 
+-- Great advice from Rifasaurous on r/Haskell!
+done :: State (Matrix Octopus) Bool
+done = gets $ (== 100) . count (== Energy 0)
+
 partB :: Input -> Output
-partB = (+ 1) . fromJust . findIndex (== 100) . evalState (replicateM 300 step)
+partB = length . evalState (untilM step done)
 
 day11 :: Day
 day11 = Day 11 parse partA partB

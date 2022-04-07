@@ -26,10 +26,12 @@ dependencies:
 - multiset
 - neat-interpolation
 - parsec
+- PSQueue
 - req
 - split
 - text
 - time
+- monad-loops
 
 library:
   source-dirs: src

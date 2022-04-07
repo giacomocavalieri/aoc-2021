@@ -63,7 +63,8 @@ library
       QuasiQuotes
       GADTs
   build-depends:
-      array
+      PSQueue
+    , array
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -73,6 +74,7 @@ library
     , ghc
     , http-client
     , matrix
+    , monad-loops
     , mtl
     , multiset
     , neat-interpolation
@@ -96,7 +98,8 @@ executable aoc2021-exe
       GADTs
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aoc2021
+      PSQueue
+    , aoc2021
     , array
     , base >=4.7 && <5
     , bytestring
@@ -107,6 +110,7 @@ executable aoc2021-exe
     , ghc
     , http-client
     , matrix
+    , monad-loops
     , mtl
     , multiset
     , neat-interpolation
